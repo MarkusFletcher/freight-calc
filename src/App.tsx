@@ -1,4 +1,3 @@
-import './assets/styles/app.scss'
 import { useState } from 'react'
 
 import { Calculator } from './components/calculator'
@@ -6,7 +5,7 @@ import { Calculator } from './components/calculator'
 
 function App() {
   return (
-    <div>
+    <div className='calc-wrap'>
       <Calculator/>
     </div>
   )

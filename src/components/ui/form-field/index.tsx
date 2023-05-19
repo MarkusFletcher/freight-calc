@@ -12,7 +12,7 @@ export const FormField: React.FC<Props> = ({label, forId, error, children}): Rea
   return (
     <div className={s.field}>
       <label htmlFor={forId}>
-        <span>{label}</span>
+        <span className={s.title}>{label}</span>
         {error && <span className={s.error}>{error}</span>}
       </label>
       {children}

@@ -5,6 +5,20 @@
         justify-content: space-between;
         margin-bottom: 6px;
     }
+    .title {
+        font-size: 18px;
+        position: relative;
+        margin-bottom: 12px;
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background-color: aquamarine;
+            bottom: -9px;
+            left: 0;
+        }
+    }
     .error {
         font-size: 13px;
         padding: 4px;

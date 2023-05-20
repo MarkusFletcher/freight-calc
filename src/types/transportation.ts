@@ -5,5 +5,9 @@ export interface ITransportationData {
   time: string,
   duration: string,
   movers: number,
-  passengers: number
+  passengers: number,
+  car: {
+    name: string,
+    price: number
+  }
 }

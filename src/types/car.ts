@@ -16,3 +16,5 @@ export interface ICarResponse {
   taxes: string,
   upc: string,
 }
+
+export interface ICar extends ICarResponse {}

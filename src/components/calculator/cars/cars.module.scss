@@ -1,0 +1,28 @@
+.cars {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.car {
+    border: 1px solid #fff;
+    border-radius: 4px;
+    padding: 10px;
+    min-width: 160px;
+    cursor: pointer;
+
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 20px;
+
+    .name {
+        grid-column: 1 / -1;
+    }
+    .price {
+        text-align: right;
+    }
+}

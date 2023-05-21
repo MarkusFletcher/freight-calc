@@ -1,7 +1,5 @@
-import { ITransportationData } from '../types/transportation'
+import { Transportation } from '../models/transportation'
 
-export class Transportation {
-	calculate() {
-
-	}
+export class TransportationService {
+  
 }

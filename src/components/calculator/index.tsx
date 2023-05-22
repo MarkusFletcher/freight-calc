@@ -11,7 +11,7 @@ import { Cars } from './cars'
 
 import { DistanceService } from '../../service/distance'
 import { CarsService } from '../../service/cars'
-import { Transportation } from '../../models/transportation'
+import { Transportation } from '../../classes/Transportation'
 
 const formDataDefault: ITransportationData = {
   from: '',

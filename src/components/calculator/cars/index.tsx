@@ -1,7 +1,7 @@
 import React, { useRef, ReactElement, WheelEvent } from 'react'
 import s from './cars.module.scss'
 import { ICar } from '../../../types/car'
-import { Car } from './cars.item'
+import { Car } from './car'
 
 interface Props {
   cars: ICar[],

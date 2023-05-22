@@ -22,9 +22,24 @@
     .price {
         display: flex;
         justify-content: space-between;
+        gap: 10px;
         margin-bottom: 20px;
-    }
-    .priceLabel {
-
+        .label {
+            font-size: 18px;
+            flex-grow: 1;
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 2px;
+                background-color: aquamarine;
+            }
+        }
+        .value {
+            font-size: 26px;
+        }
     }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ReactElement } from 'react'
+import React, { useEffect, useState, useMemo, ReactElement } from 'react'
 import s from './calculator.module.scss'
 
 import { ITransportationData } from '../../types/transportation'
@@ -8,6 +8,7 @@ import { FormField } from '../ui/form-field'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { Cars } from './cars'
+import { Price } from './price'
 
 import { DistanceService } from '../../service/distance'
 import { CarsService } from '../../service/cars'
@@ -33,7 +34,7 @@ export const Calculator: React.FC = (): ReactElement => {
   const [distance, setDistance] = useState<number>(0)
   const [price, setPrice] = useState<number>(0)
 
-  const transportation = new Transportation({
+  const transportation: Transportation = new Transportation({
     distance: distance,
     date: formData.date,
     time: formData.time,
@@ -42,6 +43,18 @@ export const Calculator: React.FC = (): ReactElement => {
     numberOfLoaders: formData.loaders,
     numberOfPassengers: formData.passengers
   })
+
+  // const transportation1: any = useMemo(() => {
+  //   new Transportation({
+  //     distance: distance,
+  //     date: formData.date,
+  //     time: formData.time,
+  //     duration: formData.duration,
+  //     carPrice: formData.car.price,
+  //     numberOfLoaders: formData.loaders,
+  //     numberOfPassengers: formData.passengers
+  //   }
+  // }, [formData, distance])
 
   /**
    * Обработчик изменения полей формы
@@ -84,10 +97,10 @@ export const Calculator: React.FC = (): ReactElement => {
 
   useEffect(() => {
     setPrice(transportation.calculatePrice())
-  }, [formData, distance])
+  }, [transportation])
 
   return (
-    <form className={s.calc} action="">
+    <form className={s.calc} action="" >
       <h1>Расчет стоимости перевозки</h1>
       <div className={s.fields}>
         <FormField label='Откуда' forId="from">
@@ -107,9 +120,7 @@ export const Calculator: React.FC = (): ReactElement => {
             {<Input id="duration" name="duration" type='time' value={formData.duration} onChange={formInputHandler}></Input>}
           </FormField>
         </div>
-        <div className={s.carsField}>
-          <Cars cars={cars} chooseCar={chooseCar}></Cars>
-        </div>
+        <Cars cars={cars} chooseCar={chooseCar}></Cars>
         <div className={s.personsFields}>
           <FormField label='Грузчики' forId="loaders">
             {<Input id="loaders" name="loaders" type='number' value={formData.loaders} onChange={formInputHandler}></Input>}
@@ -119,10 +130,7 @@ export const Calculator: React.FC = (): ReactElement => {
           </FormField>
         </div>
       </div>
-      <div className={s.price}>
-        <span className={s.priceLabel}>Итого</span>
-        <span>{ price }</span>
-      </div>
+      <Price price={price}/>
       <div className={s.actions}>
         <Button text="Оформить"/>
       </div>
